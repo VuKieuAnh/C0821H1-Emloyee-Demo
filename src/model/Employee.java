@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Employee {
+public abstract class Employee implements Comparable<Employee> {
     private String code;
     private String name;
     private String email;
@@ -9,6 +9,8 @@ public abstract class Employee {
 
     public Employee() {
     }
+
+
 
     public Employee(String code, String name, String email, int age, String phone) {
         this.code = code;
@@ -69,5 +71,9 @@ public abstract class Employee {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    @Override
+    public int compareTo(Employee o) {
+        return (age<o.getAge())?1:-1;
     }
 }
